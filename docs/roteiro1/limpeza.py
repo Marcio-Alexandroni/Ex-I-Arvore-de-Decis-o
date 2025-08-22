@@ -48,13 +48,13 @@ dups_removed = antes - len(df)
 null_report = df.isnull().sum()
 
 # ---------- 3) Salvar versão clean ----------
-destino = Path("docs/Data/TSLA_clean.csv")
+destino = Path("docs/data/TSLA_clean.csv")
 try:
     destino.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(destino, index=False)
 except Exception:
     # fallback para dentro do projeto
-    destino = Path("Data/TSLA_clean.csv")
+    destino = Path("data/TSLA_clean.csv")
     destino.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(destino, index=False)
 

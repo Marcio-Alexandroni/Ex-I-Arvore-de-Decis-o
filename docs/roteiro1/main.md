@@ -19,6 +19,14 @@ roteiro 1
 | **Aumento de Dados**    | Gera dados sintéticos para aumentar o tamanho e a diversidade do dataset. |
 
 
+```python exec="on" html="0"
+--8<-- "docs/data/preprocessing/titanic-original.py"
+```
+/// caption
+Sample rows from the Titanic dataset
+///
+
+
 
 Instalando o MAAS:
 
