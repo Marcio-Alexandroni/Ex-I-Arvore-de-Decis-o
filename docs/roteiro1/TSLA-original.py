@@ -1,8 +1,11 @@
 import pandas as pd
 
-# Load the Titanic dataset
-df = pd.read_csv('https://github.com/Marcio-Alexandroni/Ex-I-Arvore-de-Decis-o/blob/main/docs/data/TSLA.csv')
+# Carregar o dataset TSLA do GitHub
+url = 'https://raw.githubusercontent.com/Marcio-Alexandroni/Ex-I-Arvore-de-Decis-o/main/docs/Data/TSLA.csv'
+df = pd.read_csv(url)
+
+# Amostra de 10 linhas
 df = df.sample(n=10, random_state=42)
 
-# Display the first few rows of the dataset
+# Exibir algumas linhas
 print(df.to_markdown(index=False))

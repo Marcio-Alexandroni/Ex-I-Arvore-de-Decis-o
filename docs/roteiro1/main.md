@@ -4,9 +4,7 @@ Exploração e Análise do Kaggle Dataset 'TESLA Stock Data'
 
 ## Montagem do Roteiro
 
-roteiro 1
-
-### Tarefa 1
+### Desafio I
 
 ## Tarefas Típicas de Pré-processamento
 
@@ -23,7 +21,7 @@ roteiro 1
 --8<-- "docs/roteiro1/TSLA-original.py"
 ```
 /// caption
-Sample rows from the Titanic dataset
+Sample rows from Dataset the TSLA Stock Data
 ///
 
 
