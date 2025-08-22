@@ -20,7 +20,7 @@ roteiro 1
 
 
 ```python exec="on" html="0"
---8<-- "docs/data/preprocessing/titanic-original.py"
+--8<-- "docs/roteiro1/TSLA-original.py"
 ```
 /// caption
 Sample rows from the Titanic dataset
