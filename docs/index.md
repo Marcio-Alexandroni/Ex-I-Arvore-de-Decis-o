@@ -1,4 +1,5 @@
-# Template de Entrega
+# Exercício I - Machine Learning
+## Exploração Kaggle Dataset - TESLA Stock Data
 
 
 ???+ info inline end "Edição"
@@ -6,21 +7,24 @@
     2025.1
 
 
-## Grupo/Kit X
+## Grupo
 
-1. João da Silva
-1. Pedro de Souza
-1. Maria Oliveira
-1. Grupo K
-    - João da Silva
-    - Pedro de Souza
+1. Márcio Alexandroni da Silva Filho
 
+!!! tip "📂 Sobre o Dataset"
 
+    Fonte: Kaggle (dados históricos de ações da Tesla).
 
-!!! tip "Instruções"
-
-    Vocês devem utilizar este template como um bloco de notas para registrar o que foi feito e o que falta fazer. Vocês devem adicionar as informações necessárias.
-    O template deve ser editado e atualizado a cada entrega, registrando assim a data de entrega e o que foi feito até o momento via Git.
+    Período: 6/29/2010 a 3/24/2022
+    
+    Colunas típicas:
+        Date → Data de negociação
+        Open → Preço de abertura
+        High → Maior preço no dia
+        Low → Menor preço no dia
+        Close → Preço de fechamento
+        Adj Close → Preço ajustado (leva em conta splits e dividendos)
+        Volume → Quantidade de ações negociadas
 
 ## Entregas
 

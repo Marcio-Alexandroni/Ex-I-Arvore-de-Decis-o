@@ -1,8 +1,8 @@
-site_name: Template de Entrega
-site_author: Sandmann, H.
-site_url: https://hsandmann.github.io/documentation.template
-repo_url: https://github.com/hsandmann/documentation.template
-repo_name: github/documentation.template
+site_name: Ex I - Árvore de Decisão
+site_author: Márcio Filho
+site_url: https://marcio-alexandroni.github.io/Ex-I-Arvore-de-Decis-o/
+repo_url: https://github.com/Marcio-Alexandroni/Ex-I-Arvore-de-Decis-o
+repo_name: Ex-I-Arvore-de-Decisão
 
 theme:
   name: material
@@ -110,7 +110,7 @@ plugins:
       enable_creation_date: true
   - git-authors
   - git-committers:
-      repository: hsandmann/hsandmann.github.com
+      repository: github.com/Marcio-Alexandroni/Ex-I-Arvore-de-Decis-o
       branch: main
   - search
   - badges

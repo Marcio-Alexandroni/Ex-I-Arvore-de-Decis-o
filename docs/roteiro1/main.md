@@ -1,12 +1,24 @@
 ## Objetivo
 
-Aqui vai o objetivo macro do roteiro. Por que estamos fazendo o que estamos fazendo?
+Exploração e Análise do Kaggle Dataset 'TESLA Stock Data'
 
 ## Montagem do Roteiro
 
-Os pontos "tarefas" são os passos que devem ser seguidos para a realização do roteiro. Eles devem ser claros e objetivos. Com evidências claras de que foram realizados.
+roteiro 1
 
 ### Tarefa 1
+
+## Tarefas Típicas de Pré-processamento
+
+| Tarefa                 | Descrição                                                                 |
+|-------------------------|---------------------------------------------------------------------------|
+| **Limpeza de Texto**    | Remove caracteres indesejados, stop words e aplica stemming/lematização. |
+| **Normalização**        | Padroniza formatos de texto, como datas e moedas.                         |
+| **Tokenização**         | Divide o texto em palavras ou subpalavras para facilitar a análise.       |
+| **Extração de Atributos** | Converte o texto em características numéricas usando técnicas como TF-IDF ou embeddings. |
+| **Aumento de Dados**    | Gera dados sintéticos para aumentar o tamanho e a diversidade do dataset. |
+
+
 
 Instalando o MAAS:
 
