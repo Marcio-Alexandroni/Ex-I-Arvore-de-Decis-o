@@ -1,12 +1,12 @@
-## Objetivo
+# Objetivo
 
 Exploração e Análise do Kaggle Dataset 'TESLA Stock Data'
 
-## Montagem do Roteiro
+# Montagem do Roteiro
 
-### Desafio I
+## Desafio I
 
-## Tarefas Típicas de Pré-processamento
+### Tarefas Típicas de Pré-processamento
 
 | Tarefa                 | Descrição                                                                 |
 |-------------------------|---------------------------------------------------------------------------|
@@ -16,6 +16,7 @@ Exploração e Análise do Kaggle Dataset 'TESLA Stock Data'
 | **Extração de Atributos** | Converte o texto em características numéricas usando técnicas como TF-IDF ou embeddings. |
 | **Aumento de Dados**    | Gera dados sintéticos para aumentar o tamanho e a diversidade do dataset. |
 
+Arquivo CSV Originl do TSLA Stock Data:
 
 ```python exec="on" html="0"
 --8<-- "docs/roteiro1/TSLA-original.py"
@@ -23,6 +24,21 @@ Exploração e Análise do Kaggle Dataset 'TESLA Stock Data'
 /// caption
 Sample rows from Dataset the TSLA Stock Data
 ///
+
+<h2 id="data-cleaning">Data Cleaning</h2>
+
+A limpeza de dados no dataset da Tesla envolveu a conversão da coluna de datas para o formato datetime, a ordenação cronológica das observações, a remoção da coluna redundante Adj Close e a verificação de duplicatas ou valores ausentes, que não foram encontrados. Essas etapas garantem consistência e preparação adequada dos dados para a análise e modelagem.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -41,7 +57,7 @@ Dashboard do MAAS
 
 Conforme ilustrado acima, a tela inicial do MAAS apresenta um dashboard com informações sobre o estado atual dos servidores gerenciados. O dashboard é composto por diversos painéis, cada um exibindo informações sobre um aspecto específico do ambiente gerenciado. Os painéis podem ser configurados e personalizados de acordo com as necessidades do usuário.
 
-### Tarefa 2
+### Desafio II
 
 ## App
 

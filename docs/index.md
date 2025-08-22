@@ -16,14 +16,14 @@
     Fonte: Kaggle (dados históricos de ações da Tesla).
 
     Período: 6/29/2010 a 3/24/2022
-    
+
     Colunas típicas:
-        Date → Data de negociação
-        Open → Preço de abertura
-        High → Maior preço no dia
-        Low → Menor preço no dia
-        Close → Preço de fechamento
-        Adj Close → Preço ajustado (leva em conta splits e dividendos)
+        Date → Data de negociação<br>
+        Open → Preço de abertura<br>
+        High → Maior preço no dia<br>
+        Low → Menor preço no dia<br>
+        Close → Preço de fechamento<br>
+        Adj Close → Preço ajustado (leva em conta splits e dividendos)<br>
         Volume → Quantidade de ações negociadas
 
 ## Entregas
