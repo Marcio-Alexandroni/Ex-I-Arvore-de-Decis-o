@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Carregar o dataset TSLA do GitHub
-url = 'https://raw.githubusercontent.com/Marcio-Alexandroni/Ex-I-Arvore-de-Decis-o/main/docs/Data/TSLA_scaled.csv'
+url = 'https://raw.githubusercontent.com/Marcio-Alexandroni/Ex-I-Arvore-de-Decis-o/refs/heads/main/docs/data/TSLA_ready.csv'
 df = pd.read_csv(url)
 
 # Amostra de 10 linhas
