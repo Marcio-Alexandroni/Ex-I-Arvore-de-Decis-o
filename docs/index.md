@@ -17,7 +17,7 @@
 
     Período: 6/29/2010 a 3/24/2022
 
-    Colunas típicas:
+    Colunas típicas:<br>
         Date → Data de negociação<br>
         Open → Preço de abertura<br>
         High → Maior preço no dia<br>
