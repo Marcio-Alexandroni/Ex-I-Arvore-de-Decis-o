@@ -104,6 +104,10 @@ markdown_extensions:
   - pymdownx.blocks.caption
   - tables
       
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+  - js/mermaid-init.js
+
 plugins:
   - glightbox
   - git-revision-date-localized:
