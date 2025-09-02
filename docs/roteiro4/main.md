@@ -1,6 +1,6 @@
 # Árvore de Decisão — TSLA (Direção do Próximo Dia)
 
-![Árvore de Decisão TSLA](./roteiro4/tree_tsla.png){ align=center }
+![Árvore de Decisão TSLA](./tree_tsla.png){ align=center }
 
 > **Configuração**  
 > - Alvo: `Target(t+1) = 1` se `Change(t+1) > 0` (alta), senão `0` (queda).  

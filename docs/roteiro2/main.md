@@ -16,5 +16,5 @@ O dataset foi preparado com as seguintes etapas:
 --8<-- "docs/roteiro2/TSLA-N&S.py"
 ```
 /// caption
-Sample rows from Dataset the TSLA Stock Data
+Sample rows from Dataset the TSLA_ready Dataset
 ///
