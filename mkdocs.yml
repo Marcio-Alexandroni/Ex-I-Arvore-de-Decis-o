@@ -139,8 +139,8 @@ nav:
   - Home: index.md
   - This documentation: ./thisdocumentation/main.md
   - Roteiros:
-    - Roteiro 1: ./roteiro1/main.md
-    - Roteiro 2: ./roteiro2/main.md
-    - Roteiro 3: ./roteiro3/main.md
-    - Roteiro 4: ./roteiro4/main.md
+    - Sobre o Dataset: ./roteiro1/main.md
+    - Data Cleaning Normalization & Standardization: ./roteiro2/main.md
+    - Visualizações: ./roteiro3/main.md
+    - Árvore de Decisão: ./roteiro4/main.md
   - Projeto: ./projeto/main.md

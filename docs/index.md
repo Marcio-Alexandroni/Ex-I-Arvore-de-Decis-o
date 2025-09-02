@@ -4,7 +4,7 @@
 
 ???+ info inline end "Edição"
 
-    2025.1
+    2025.2
 
 
 ## Grupo
@@ -32,9 +32,9 @@
 - [x] Limpeza dos Dados
 - [x] Normalização e Padronização
 - [x] Diagramas Mermaid do Projeto
-- [ ] Visualizações
-- [ ] Árvore de Decisão
-- [ ] Projeto Concluído
+- [x] Visualizações
+- [x] Árvore de Decisão
+- [x] Projeto Concluído
 
 ## Diagramas
 
@@ -85,42 +85,12 @@ flowchart TD
 
 
 
-
-
-## Códigos
-
-=== "De um arquivo remoto"
-
-    ``` { .yaml .copy .select linenums='1' title="main.yaml" }
-    --8<-- "https://raw.githubusercontent.com/hsandmann/documentation.template/refs/heads/main/.github/workflows/main.yaml"
-    ```
-
-=== "Anotações no código"
-
-    ``` { .yaml title="compose.yaml" }
-    name: app
-
-        db:
-            image: postgres:17
-            environment:
-                POSTGRES_DB: ${POSTGRES_DB:-projeto} # (1)!
-                POSTGRES_USER: ${POSTGRES_USER:-projeto}
-                POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-projeto}
-            ports:
-                - 5432:5432 #(2)!
-    ```
-
-    1.  Caso a variável de ambiente `POSTGRES_DB` não exista ou seja nula - não seja definida no arquivo `.env` - o valor padrão será `projeto`. Vide [documentação](https://docs.docker.com/reference/compose-file/interpolation/){target='_blank'}.
-
-    2. Aqui é feito um túnel da porta 5432 do container do banco de dados para a porta 5432 do host (no caso localhost). Em um ambiente de produção, essa porta não deve ser exposta, pois ninguém de fora do compose deveria acessar o banco de dados diretamente.
-
-
 ## Exemplo de vídeo
 
-Lorem ipsum dolor sit amet
+- Em Breve
 
-<iframe width="100%" height="470" src="https://www.youtube.com/embed/3574AYQml8w" allowfullscreen></iframe>
-
+<!-- <iframe width="100%" height="470" src="https://www.youtube.com/embed/3574AYQml8w" allowfullscreen></iframe>
+-->
 
 ## Referências
 
