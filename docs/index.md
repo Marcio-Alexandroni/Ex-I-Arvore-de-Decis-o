@@ -34,7 +34,7 @@
 - [x] Diagramas Mermaid do Projeto
 - [x] Visualizações
 - [x] Árvore de Decisão
-- [x] Projeto Concluído
+- [x] Exercício Concluído
 
 ## Diagramas
 
