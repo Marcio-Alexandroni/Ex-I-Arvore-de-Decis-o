@@ -5,14 +5,12 @@
 > **Objetivo:** Classificar a **direção do próximo dia** (alta=1, queda=0) da TSLA com **K-Nearest Neighbors (KNN)** usando validação temporal.
 
 ## Como utilizamos o KNN no projeto
-- **Alvo:** `Target(t+1)=1` quando `Change(t+1)>0`; caso contrário `0`.
-- **Features:** `Volume`, `N-Volume`, `Z-Volume`, `Change`, `N-Change`, `Z-Change`.
-- **Pipeline:** `SimpleImputer(median) → StandardScaler → KNeighborsClassifier` (padronização antes das distâncias).
-- **Particionamento:** 80% treino / 20% teste (**sem embaralhar**).
-- **Validação temporal:** `TimeSeriesSplit` com 5 dobras.
-- **Tuning:** `k ∈ {1,3,…,31}` e `weights ∈ {uniform, distance}`.
-- **Critério de escolha:** maior **acurácia média** na validação temporal + **pico estável** na curva de validação.
-- **Previsão ilustrativa:** geramos um *badge* com a previsão do **penúltimo dia** (classe e probabilidade) a partir do pipeline final.
+**O que prevemos:** `Target(t+1)=1` se `Change(t+1)>0`, senão `0`.
+- **Variáveis:** `Volume`, `N-Volume`, `Z-Volume`, `Change`, `N-Change`, `Z-Change`.
+- **Pipeline:** Padronização antes de medir distâncias (`SimpleImputer(median) → StandardScaler → KNN`).
+- **Série temporal:** split `80/20` + `TimeSeriesSplit (5)`.
+- **Escolha do modelo:** maior **acurácia média** e **pico estável** na curva de validação.
+- **Entrega:** pipeline final gera **previsão** e **probabilidade**; exibimos um **badge** com o resultado do **penúltimo dia**.
 
 ## Métricas utilizadas
 - **Accuracy**, **Precision/Recall (classe 1)**, **F1 (classe 1)** e **F1 ponderado**.
@@ -44,3 +42,12 @@
 - **Limitações:** custo preditivo (distâncias), sensível à escala/ruído e à alta dimensionalidade.
 - **Próximos passos:** testar `metric='manhattan'`, ajustar `k` por regime de mercado, enriquecer features (médias/volatilidades móveis) e comparar com **Árvore/Florestas** mantendo `TimeSeriesSplit`.
 
+## Como utilizamos o KNN no projeto
+- **Alvo:** `Target(t+1)=1` quando `Change(t+1)>0`; caso contrário `0`.
+- **Features:** `Volume`, `N-Volume`, `Z-Volume`, `Change`, `N-Change`, `Z-Change`.
+- **Pipeline:** `SimpleImputer(median) → StandardScaler → KNeighborsClassifier` (padronização antes das distâncias).
+- **Particionamento:** 80% treino / 20% teste (**sem embaralhar**).
+- **Validação temporal:** `TimeSeriesSplit` com 5 dobras.
+- **Tuning:** `k ∈ {1,3,…,31}` e `weights ∈ {uniform, distance}`.
+- **Critério de escolha:** maior **acurácia média** na validação temporal + **pico estável** na curva de validação.
+- **Previsão ilustrativa:** geramos um *badge* com a previsão do **penúltimo dia** (classe e probabilidade) a partir do pipeline final.
