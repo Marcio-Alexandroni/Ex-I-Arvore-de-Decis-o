@@ -141,6 +141,7 @@ nav:
   - Roteiros:
     - Sobre o Dataset: ./roteiro1/main.md
     - Data Cleaning Normalization & Standardization: ./roteiro2/main.md
-    - Visualizações: ./roteiro3/main.md
+    - Visualizações Árvore: ./roteiro3/main.md
     - Árvore de Decisão: ./roteiro4/main.md
+    - KNN: ./roteiro5/main.md
   - Projeto: ./projeto/main.md
