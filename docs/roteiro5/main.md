@@ -5,12 +5,12 @@
 > **Objetivo:** Classificar a **direção do próximo dia** (alta=1, queda=0) da TSLA com **K-Nearest Neighbors (KNN)** usando validação temporal.
 
 ## Como utilizamos o KNN no projeto
-**O que prevemos:** `Target(t+1)=1` se `Change(t+1)>0`, senão `0`.
+- **O que prevemos:** `Target(t+1)=1` se `Change(t+1)>0`, senão `0`.
 - **Variáveis:** `Volume`, `N-Volume`, `Z-Volume`, `Change`, `N-Change`, `Z-Change`.
 - **Pipeline:** Padronização antes de medir distâncias (`SimpleImputer(median) → StandardScaler → KNN`).
 - **Série temporal:** split `80/20` + `TimeSeriesSplit (5)`.
 - **Escolha do modelo:** maior **acurácia média** e **pico estável** na curva de validação.
-- **Entrega:** pipeline final gera **previsão** e **probabilidade**; exibimos um **badge** com o resultado do **penúltimo dia**.
+- **erega:** pipeline final gera **previsão** e **probabilidade**; exibimos um **badge** com o resultado do **penúltimo dia**.
 
 ## Métricas utilizadas
 - **Accuracy**, **Precision/Recall (classe 1)**, **F1 (classe 1)** e **F1 ponderado**.
@@ -25,10 +25,13 @@
 *Classe prevista, probabilidade e configuração do KNN (penúltimo registro).*
 
 ![Curva de Validação — KNN](./knn_validation_curve.png){ align=center }  
-*Acurácia média da validação temporal por `k`.*
+*Acurácia média da validação temporal por `k`.*``
 
 ![Matriz de Confusão — KNN (Teste)](./knn_tsla_confusion_matrix.png){ align=center }  
 *Heatmap no **hold-out** (20% final).*
+
+![KNN — Decision Boundary (amostra)](./knn_demo_boundary.png){ align=center }
+*Fronteira em 2D para uma **amostra contínua didática** da TSLA. Métrica acima é do **treino na amostra** (ilustrativa).*
 
 ![Mapa de decisão PCA (ilustrativo)](./knn_decision_map_pca.png){ align=center }  
 *Regiões de decisão após **PCA(2D)** (visualização).*

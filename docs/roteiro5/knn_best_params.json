@@ -1,1 +1,1 @@
-{"knn__n_neighbors": 27, "knn__weights": "uniform"}
+{"knn__metric": "euclidean", "knn__n_neighbors": 3, "knn__weights": "uniform"}
