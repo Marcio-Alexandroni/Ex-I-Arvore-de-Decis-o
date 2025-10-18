@@ -1,4 +1,3 @@
-# docs/roteiro5/knnimg.py
 import os
 os.environ["MPLBACKEND"] = "Agg"
 
@@ -26,7 +25,6 @@ MODEL_PATH = OUT_DIR / "knn_tsla.joblib"
 BEST_PARAMS_PATH = OUT_DIR / "knn_best_params.json"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-# ==== Dados e features (alinhado ao KNNTreinamento.py) ====
 df = pd.read_csv(DATA_PATH)
 df["Date"] = pd.to_datetime(df["Date"], errors="coerce")
 df = df.sort_values("Date").reset_index(drop=True)
@@ -42,7 +40,6 @@ feature_cols = ["Z_Change_roll", "Z_Volume_roll"]
 X = df[feature_cols].copy()
 y = df["Target"].copy()
 
-# ==== Carrega pipeline treinado, com fallback para reconstruir ====
 try:
     pipe = joblib.load(MODEL_PATH)
 except Exception:
@@ -69,7 +66,6 @@ k       = getattr(knn, "n_neighbors", None)
 weights = getattr(knn, "weights", None)
 metric  = getattr(knn, "metric", "euclidean")
 
-# ==== 1) Fluxograma do pipeline ====
 fig, ax = plt.subplots(figsize=(10, 3.2))
 ax.axis("off")
 
@@ -93,10 +89,8 @@ ax.text(0.5, 0.06, "Entrada: Z_Change_roll, Z_Volume_roll → Saída: Direção 
 plt.tight_layout()
 fig.savefig(OUT_DIR / "knn_pipeline.png", dpi=220, transparent=True); plt.close(fig)
 
-# ==== Pré-processa todo X (2D após scaler) ====
 X_proc = scaler.transform(imputer.transform(X))
 
-# ==== 2) k-vizinhos do penúltimo registro ====
 idx_query = len(X_proc) - 2
 dist, ind = knn.kneighbors(X_proc[[idx_query]], n_neighbors=k, return_distance=True)
 d = dist.ravel(); neighbors_idx = ind.ravel(); neighbors_y = y.iloc[neighbors_idx].to_numpy()
@@ -113,13 +107,11 @@ ax.set_xlabel("Distância ao ponto consultado")
 ax.set_title(f"k-vizinhos do penúltimo registro — k={k}, weights='{weights}', metric='{metric}'")
 plt.tight_layout()
 fig.savefig(OUT_DIR / "knn_neighbors_example.png", dpi=220, transparent=True); plt.close(fig)
-
-# ==== 3) Regiões de decisão em 2D (usando as 2 features padronizadas) ====
 split_idx = int(len(df) * 0.8)
 train_idx = np.arange(split_idx)
 test_idx  = np.arange(split_idx, len(df))
 
-# Ajusta KNN no espaço 2D processado (sem PCA)
+
 knn_2d = KNeighborsClassifier(n_neighbors=k, weights=weights, metric=metric)
 knn_2d.fit(X_proc[train_idx], y.iloc[train_idx])
 
@@ -140,7 +132,6 @@ plt.tight_layout()
 fig.savefig(OUT_DIR / "knn_decision_map_pca.png", dpi=220, transparent=True)  # mantemos o mesmo nome de arquivo
 plt.close(fig)
 
-# ==== 4) Badge de previsão (penúltimo dia) ====
 x_last = X.iloc[[-2]]
 pred = pipe.predict(x_last)[0]
 proba = pipe.predict_proba(x_last)[0, int(pred)] if hasattr(pipe, "predict_proba") else np.nan

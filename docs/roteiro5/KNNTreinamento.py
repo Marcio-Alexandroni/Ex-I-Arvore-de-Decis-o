@@ -1,4 +1,3 @@
-# docs/roteiro5/KNNTreinamento.py
 import os
 os.environ["MPLBACKEND"] = "Agg"
 
@@ -22,57 +21,38 @@ from sklearn.metrics import (
     confusion_matrix, ConfusionMatrixDisplay
 )
 
-# ---------------------------
-# Caminhos e saída
-# ---------------------------
 DATA_PATH = Path("docs/data/TSLA_ready.csv")
 OUT_DIR   = Path("docs/roteiro5")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-# ---------------------------
-# Carregar e preparar dados
-# ---------------------------
 df = pd.read_csv(DATA_PATH)
 df["Date"] = pd.to_datetime(df["Date"], errors="coerce")
 df = df.sort_values("Date").reset_index(drop=True)
 
-# Target: direção do dia seguinte
 df["Target"] = (df["Change"].shift(-1) > 0).astype(int)
 
-# Rolling z-score (sem vazamento): usa somente passado
 win = 60
 for col, new_col in [("Change", "Z_Change_roll"), ("Volume", "Z_Volume_roll")]:
     roll_mean = df[col].rolling(win, min_periods=win).mean()
     roll_std  = df[col].rolling(win, min_periods=win).std()
     df[new_col] = (df[col] - roll_mean) / roll_std
 
-# Remover linhas iniciais sem janela completa e o último por causa do shift(-1)
 df = df.dropna(subset=["Z_Change_roll", "Z_Volume_roll"]).iloc[:-1].reset_index(drop=True)
 
-# Feature set reduzido (evita duplicidade)
 feature_cols = ["Z_Change_roll", "Z_Volume_roll"]
 X = df[feature_cols].copy()
 y = df["Target"].copy()
 
-# ---------------------------
-# Split temporal 80/20 (sem embaralhar)
-# ---------------------------
 split_idx = int(len(df) * 0.8)
 X_train, X_test = X.iloc[:split_idx], X.iloc[split_idx:]
 y_train, y_test = y.iloc[:split_idx], y.iloc[split_idx:]
 
-# ---------------------------
-# Pipeline
-# ---------------------------
 pipe = Pipeline([
     ("imputer", SimpleImputer(strategy="median")),
     ("scaler", StandardScaler()),
     ("knn", KNeighborsClassifier())
 ])
 
-# ---------------------------
-# Curva de validação (k) — melhor score por k dentre métricas/pesos
-# ---------------------------
 tscv = TimeSeriesSplit(n_splits=5)
 k_values = list(range(3, 32, 2))
 cv_best_means = []
@@ -104,9 +84,6 @@ plt.tight_layout()
 plt.savefig(OUT_DIR / "knn_validation_curve.png", dpi=220, transparent=True)
 plt.close()
 
-# ---------------------------
-# GridSearch com métricas e pesos
-# ---------------------------
 param_grid = {
     "knn__n_neighbors": k_values,
     "knn__weights": ["uniform", "distance"],
@@ -123,9 +100,6 @@ grid = GridSearchCV(
 grid.fit(X_train, y_train)
 clf = grid.best_estimator_
 
-# ---------------------------
-# Avaliação no hold-out (20% final)
-# ---------------------------
 y_pred = clf.predict(X_test)
 
 metrics = {
@@ -150,13 +124,9 @@ plt.tight_layout()
 plt.savefig(OUT_DIR / "knn_tsla_confusion_matrix.png", dpi=220, transparent=True)
 plt.close()
 
-# ---------------------------
-# Persistência
-# ---------------------------
 (OUT_DIR / "knn_best_params.json").write_text(json.dumps(grid.best_params_), encoding="utf-8")
 joblib.dump(clf, OUT_DIR / "knn_tsla.joblib")
 
-# Limpeza final de figuras/backends
 import gc
 plt.close("all")
 gc.collect()
