@@ -1,8 +1,8 @@
-site_name: Ex I - Árvore de Decisão
+site_name: Machine Learning 25.2
 site_author: Márcio Filho
-site_url: https://marcio-alexandroni.github.io/Ex-I-Arvore-de-Decis-o/
-repo_url: https://github.com/Marcio-Alexandroni/Ex-I-Arvore-de-Decis-o
-repo_name: Ex-I-Arvore-de-Decisão
+site_url: https://marcio-alexandroni.github.io/machine-learning-25.2/
+repo_url: https://github.com/Marcio-Alexandroni/machine-learning-25.2
+repo_name: Machine Learning 25.2
 
 theme:
   name: material
